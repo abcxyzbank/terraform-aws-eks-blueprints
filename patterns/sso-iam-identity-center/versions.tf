@@ -11,4 +11,10 @@ terraform {
       version = ">= 2.20"
     }
   }
+   # ##  Used for end-to-end testing on project; update to suit your needs
+  # backend "s3" {
+  #   bucket = "terraform-ssp-github-actions-state-1"
+  #   region = "us-east-1"
+  #   key    = "e2e/sso-iam-identity-center/terraform.tfstate"
+  # }
 }
