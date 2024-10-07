@@ -33,6 +33,8 @@ jobs:
           - example_path: patterns/karpenter
           - example_path: patterns/multi-tenancy-with-teams
           - example_path: patterns/stateful
+          - example_path: patterns/wireguard-with-cilium
+
 
     steps:
       - name: Harden Runner
@@ -58,7 +60,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.3.10
+          terraform_version: latest
 
       - name: Terraform Destroy
         working-directory: ${{ matrix.example_path }}
