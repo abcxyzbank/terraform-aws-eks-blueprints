@@ -12,7 +12,7 @@ concurrency: e2e-parallel-full
 
 env:
   IAMLIVE_VERSION: v0.48.0
-  BUCKET_NAME: terraform-eks-blueprints-iam-policies-examples
+  BUCKET_NAME: terraform-eks-blueprints-iam-policies-examples-1
 
 permissions:
   contents: read
