@@ -7,7 +7,7 @@ module "eks" {
   version = "~> 20.11"
 
   cluster_name                   = local.name
-  cluster_version                = "1.30"
+  cluster_version                = "1.31"
   cluster_endpoint_public_access = true
 
   # Give the Terraform identity admin access to the cluster
@@ -75,7 +75,7 @@ module "eks_blueprints_addons" {
     cilium = {
       name             = "cilium"
       chart            = "cilium"
-      version          = "1.14.1"
+      version          = "1.17.0-pre.1"
       repository       = "https://helm.cilium.io/"
       description      = "Cilium Add-on"
       namespace        = "kube-system"
@@ -86,13 +86,18 @@ module "eks_blueprints_addons" {
           cni:
             chainingMode: aws-cni
           enableIPv4Masquerade: false
-          tunnel: disabled
+          #tunnel: disabled
           endpointRoutes:
             enabled: true
           l7Proxy: false
           encryption:
             enabled: true
             type: wireguard
+          hubble:
+            relay:
+              enabled: true
+            ui:
+              enabled: true
         EOT
       ]
     }

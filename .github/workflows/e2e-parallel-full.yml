@@ -62,11 +62,12 @@ jobs:
         include:
           # - example_path: patterns/agones-game-controller
           # - example_path: patterns/fargate-serverless
-          - example_path: patterns/gitops/getting-started-argocd
+          # - example_path: patterns/gitops/getting-started-argocd
           # - example_path: patterns/ipv6-eks-cluster
           # - example_path: patterns/karpenter
-          # - example_path: patterns/multi-tenancy-with-teams
+          - example_path: patterns/multi-tenancy-with-teams
           # - example_path: patterns/stateful
+          - example_path: patterns/wireguard-with-cilium
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2
