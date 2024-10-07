@@ -18,8 +18,8 @@ terraform {
 
   # ##  Used for end-to-end testing on project; update to suit your needs
   # backend "s3" {
-  #   bucket = "terraform-ssp-github-actions-state"
-  #   region = "us-west-2"
+  #   bucket = "terraform-ssp-github-actions-state-1"
+  #   region = "us-east-1"
   #   key    = "e2e/getting-started-argocd/terraform.tfstate"
   # }
 }
