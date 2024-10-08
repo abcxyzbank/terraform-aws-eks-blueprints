@@ -38,7 +38,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-          aws-region: ap-southeast-1
+          aws-region: us-west-2
           role-duration-seconds: 3600
           role-session-name: GithubActions-Session
 
@@ -62,13 +62,13 @@ jobs:
         include:
           # - example_path: patterns/agones-game-controller
           # - example_path: patterns/fargate-serverless
-          # - example_path: patterns/gitops/getting-started-argocd
+          - example_path: patterns/gitops/getting-started-argocd
           # - example_path: patterns/ipv6-eks-cluster
           # - example_path: patterns/karpenter
           # - example_path: patterns/multi-tenancy-with-teams
           # - example_path: patterns/stateful
           # - example_path: patterns/wireguard-with-cilium
-          - example_path: patterns/sso-iam-identity-center          
+          # - example_path: patterns/sso-iam-identity-center          
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2
@@ -86,7 +86,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-          aws-region: ap-southeast-1
+          aws-region: us-west-2
           role-duration-seconds: 3600
           role-session-name: GithubActions-Session
 
