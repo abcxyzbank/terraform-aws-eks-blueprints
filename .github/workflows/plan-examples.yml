@@ -88,7 +88,7 @@ jobs:
         if: steps.changes.outputs.src== 'true'
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-          aws-region: us-west-2
+          aws-region: ap-southeast-1
           role-duration-seconds: 3600
           role-session-name: GithubActions-Session
 
@@ -96,7 +96,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         if: steps.changes.outputs.src== 'true'
         with:
-          terraform_version: 1.0.0
+          terraform_version: latest
 
       - if: steps.changes.outputs.src== 'true'
         run: terraform version
