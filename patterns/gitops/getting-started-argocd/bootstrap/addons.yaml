@@ -24,3 +24,87 @@ spec:
         name: '{{name}}'
       syncPolicy:
         automated: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: newrelic-addons
+  namespace: argocd
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - clusters: {}
+  template:
+    metadata:
+      name: newrelic-addons
+    spec:
+      project: default
+      source:
+        repoURL: '{{metadata.annotations.addons_repo_url}}'
+        path: '{{metadata.annotations.addons_repo_basepath}}newrelic'
+        targetRevision: '{{metadata.annotations.addons_repo_revision}}'
+        directory:
+          recurse: true
+      destination:
+        namespace: argocd
+        name: '{{name}}'
+      syncPolicy:
+        automated: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: datadog-addons
+  namespace: argocd
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - clusters: {}
+  template:
+    metadata:
+      name: datadog-addons
+    spec:
+      project: default
+      source:
+        repoURL: '{{metadata.annotations.addons_repo_url}}'
+        path: '{{metadata.annotations.addons_repo_basepath}}datadog'
+        targetRevision: '{{metadata.annotations.addons_repo_revision}}'
+        directory:
+          recurse: true
+      destination:
+        namespace: argocd
+        name: '{{name}}'
+      syncPolicy:
+        automated: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dynatrace-addons
+  namespace: argocd
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - clusters: {}
+  template:
+    metadata:
+      name: dynatrace-addons
+    spec:
+      project: default
+      source:
+        repoURL: '{{metadata.annotations.addons_repo_url}}'
+        path: '{{metadata.annotations.addons_repo_basepath}}dynatrace'
+        targetRevision: '{{metadata.annotations.addons_repo_revision}}'
+        directory:
+          recurse: true
+      destination:
+        namespace: argocd
+        name: '{{name}}'
+      syncPolicy:
+        automated: {}

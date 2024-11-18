@@ -343,3 +343,52 @@ export TF_VAR_gitops_workload_org=https://github.com/aws-ia
 export TF_VAR_gitops_workload_repo=terraform-aws-eks-blueprints
 export TF_VAR_gitops_workload_revision=main
 ```
+
+## Configuring New Relic, Datadog, and Dynatrace
+
+To configure New Relic, Datadog, and Dynatrace, follow the steps below:
+
+### New Relic
+
+1. Set the following environment variables with your New Relic API key and account ID:
+
+```shell
+export TF_VAR_newrelic_api_key=<your_newrelic_api_key>
+export TF_VAR_newrelic_account_id=<your_newrelic_account_id>
+```
+
+2. Apply the Terraform configuration to deploy the New Relic addon:
+
+```shell
+terraform apply -auto-approve
+```
+
+### Datadog
+
+1. Set the following environment variables with your Datadog API key and application key:
+
+```shell
+export TF_VAR_datadog_api_key=<your_datadog_api_key>
+export TF_VAR_datadog_app_key=<your_datadog_app_key>
+```
+
+2. Apply the Terraform configuration to deploy the Datadog addon:
+
+```shell
+terraform apply -auto-approve
+```
+
+### Dynatrace
+
+1. Set the following environment variables with your Dynatrace API URL and API token:
+
+```shell
+export TF_VAR_dynatrace_api_url=<your_dynatrace_api_url>
+export TF_VAR_dynatrace_api_token=<your_dynatrace_api_token>
+```
+
+2. Apply the Terraform configuration to deploy the Dynatrace addon:
+
+```shell
+terraform apply -auto-approve
+```
