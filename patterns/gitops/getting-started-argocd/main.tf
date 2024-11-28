@@ -38,6 +38,21 @@ provider "kubernetes" {
   }
 }
 
+provider "newrelic" {
+  api_key = var.newrelic_api_key
+  account_id = var.newrelic_account_id
+}
+
+provider "datadog" {
+  api_key = var.datadog_api_key
+  app_key = var.datadog_app_key
+}
+
+provider "dynatrace" {
+  api_url = var.dynatrace_api_url
+  api_token = var.dynatrace_api_token
+}
+
 locals {
   name   = "getting-started-gitops"
   region = var.region
@@ -99,6 +114,9 @@ locals {
     enable_prometheus_adapter              = try(var.addons.enable_prometheus_adapter, false)
     enable_secrets_store_csi_driver        = try(var.addons.enable_secrets_store_csi_driver, false)
     enable_vpa                             = try(var.addons.enable_vpa, false)
+    enable_newrelic                        = try(var.addons.enable_newrelic, false)
+    enable_datadog                         = try(var.addons.enable_datadog, false)
+    enable_dynatrace                       = try(var.addons.enable_dynatrace, false)
   }
   addons = merge(
     local.aws_addons,
@@ -178,6 +196,9 @@ module "eks_blueprints_addons" {
   enable_karpenter                    = local.aws_addons.enable_karpenter
   enable_velero                       = local.aws_addons.enable_velero
   enable_aws_gateway_api_controller   = local.aws_addons.enable_aws_gateway_api_controller
+  enable_newrelic                     = local.oss_addons.enable_newrelic
+  enable_datadog                      = local.oss_addons.enable_datadog
+  enable_dynatrace                    = local.oss_addons.enable_dynatrace
 
   tags = local.tags
 }

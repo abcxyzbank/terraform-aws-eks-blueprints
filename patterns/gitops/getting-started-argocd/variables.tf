@@ -74,3 +74,39 @@ variable "gitops_workload_path" {
   type        = string
   default     = "getting-started-argocd/k8s"
 }
+
+# New Relic
+variable "newrelic_api_key" {
+  description = "New Relic API key"
+  type        = string
+  default     = ""
+}
+variable "newrelic_account_id" {
+  description = "New Relic account ID"
+  type        = string
+  default     = ""
+}
+
+# Datadog
+variable "datadog_api_key" {
+  description = "Datadog API key"
+  type        = string
+  default     = ""
+}
+variable "datadog_app_key" {
+  description = "Datadog application key"
+  type        = string
+  default     = ""
+}
+
+# Dynatrace
+variable "dynatrace_api_url" {
+  description = "Dynatrace API URL"
+  type        = string
+  default     = ""
+}
+variable "dynatrace_api_token" {
+  description = "Dynatrace API token"
+  type        = string
+  default     = ""
+}
